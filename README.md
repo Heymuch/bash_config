@@ -1,0 +1,5 @@
+# Bash
+shell
+
+## Path
+* ~/.bashrc
