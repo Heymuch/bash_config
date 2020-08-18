@@ -14,9 +14,9 @@ enable_colors=true
 
 # PS1 configuration
 if ${enable_colors} ; then
-	PS1="\[$(tput bold)\]\[\033[38;5;7m\]\h\[$(tput sgr0)\]\[$(tput bold)\]::\[\033[38;5;10m\]\u\[$(tput sgr0)\] \[$(tput bold)\][\[\033[38;5;12m\]\w\[$(tput sgr0)\]\[$(tput bold)\]]\[$(tput sgr0)\] "
+	PS1="\[\033[38;5;7m\]\h\[$(tput sgr0)\] \[$(tput bold)\]\[\033[38;5;12m\]\W\[$(tput sgr0)\] "
 else
-	PS1="\h::\u [\w] "
+	PS1="\h \W "
 fi
 
 # Enable colors for files and directories
