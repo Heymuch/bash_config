@@ -30,13 +30,15 @@ fi
 GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
-alias ls='ls -l --group-directories-first --color=auto'
+alias ls='ls --group-directories-first --color=auto'
 alias la='ls -lA --group-directories-first --color=auto'
-alias ll='ls -alF -- group-directories-firts --color=auto'
-alias l='ls -CF --group-directories-first --color=auto'
+alias ll='ls -l --group-directories-first --color=auto'
 alias df='df -h'
 alias cp='cp -i'
 alias free='free -m'
+
+# PATH
+export PATH=$PATH:~/.emacs.d/bin
 
 # Command history
 # number of history lines
