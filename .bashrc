@@ -14,7 +14,7 @@ enable_colors=true
 
 # PS1 configuration
 if ${enable_colors} ; then
-	PS1="\h :: \[$(tput bold)\]\[\033[38;5;12m\] \W\[$(tput sgr0)\] "
+	PS1="\h :: \[$(tput bold)\]\[\033[38;5;12m\]\W\[$(tput sgr0)\] "
 else
 	PS1="\h \W "
 fi
