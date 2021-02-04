@@ -14,7 +14,7 @@ enable_colors=true
 
 # PS1 configuration
 if ${enable_colors} ; then
-	PS1="\h :: \[$(tput bold)\]\[\033[38;5;12m\]\W\[$(tput sgr0)\] "
+	PS1="\[\033[38;5;7m\]\h \[\033[38;5;9m\]\W\[$(tput sgr0)\] "
 else
 	PS1="\h \W "
 fi
@@ -58,6 +58,9 @@ shopt -s globstar
 
 # Expand aliases
 shopt -s expand_aliases
+
+# SUDO prompt
+export SUDO_PROMPT="$(tput bold)$(tput setaf 1)<< Word of Power >> $(tput sgr0)"
 
 # Cleanup
 unset enable_colors
