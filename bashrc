@@ -12,12 +12,34 @@
 # Enable colors
 enable_colors=true
 
+# Git Function
+function git_branch {
+	echo $(git branch --show-current 2> /dev/null)
+}
+
+function ps1_git {
+	local branch=$(git_branch)
+	if [ $branch ] ; then
+		echo "(${branch}) "
+	fi
+}
+
 # PS1 configuration
-if ${enable_colors} ; then
-	PS1="\[\033[38;5;7m\]\h \[\033[38;5;9m\]\W\[$(tput sgr0)\] "
-else
-	PS1="\h \W "
-fi
+function ps1_config {
+	if $enable_colors ; then
+		# Barvy
+		local grey="\[$(tput setaf 8)\]"
+		local red="\[$(tput setaf 1)\]"
+		local bold="\[$(tput bold)\]"
+		local reset="\[$(tput sgr0)\]"
+
+		echo "${bold}${grey}.:[ ${red}\W${grey} \$(ps1_git)]:. ${reset}"
+	else
+		echo "[ \u@\h \W \$(ps1_git)] "
+	fi
+}
+
+PS1=$(ps1_config)
 
 # Enable colors for files and directories
 if ${enable_colors} ; then
@@ -31,8 +53,8 @@ GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
 alias ls='ls --group-directories-first --color=auto'
-alias la='ls -lA --group-directories-first --color=auto'
-alias ll='ls -l --group-directories-first --color=auto'
+alias la='ls -lAhv --group-directories-first --color=auto'
+alias ll='ls -lhgGv --group-directories-first --color=auto'
 alias df='df -h'
 alias cp='cp -i'
 alias free='free -m'
@@ -61,6 +83,3 @@ shopt -s expand_aliases
 
 # SUDO prompt
 export SUDO_PROMPT="$(tput bold)$(tput setaf 1)<< Word of Power >> $(tput sgr0)"
-
-# Cleanup
-unset enable_colors
