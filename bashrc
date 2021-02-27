@@ -29,11 +29,11 @@ function ps1_config {
 	if $enable_colors ; then
 		# Barvy
 		local grey="\[$(tput setaf 8)\]"
-		local red="\[$(tput setaf 1)\]"
+		local blue="\[$(tput setaf 6)\]"
 		local bold="\[$(tput bold)\]"
 		local reset="\[$(tput sgr0)\]"
 
-		echo "${bold}${grey}.:[ ${red}\W${grey} \$(ps1_git)]:. ${reset}"
+		echo "${bold}${grey}.:| ${blue}\W${grey} \$(ps1_git)|:. ${reset}"
 	else
 		echo "[ \u@\h \W \$(ps1_git)] "
 	fi
@@ -52,12 +52,15 @@ fi
 GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
-alias ls='ls --group-directories-first --color=auto'
-alias la='ls -lAhv --group-directories-first --color=auto'
-alias ll='ls -lhgGv --group-directories-first --color=auto'
+alias ls='ls -1 --group-directories-first --color=auto --file-type'
+alias la='ls -lAhv --group-directories-first --color=auto --file-type'
+alias ll='ls -lhgGv --group-directories-first --color=auto --file-type'
+alias tree='tree --du --si --dirsfirst -L 3'
+alias trea='tree --du --si --dirsfirst -L 3 -a'
 alias df='df -h'
 alias cp='cp -i'
 alias free='free -m'
+alias htop='htop -t'
 
 # PATH
 export PATH=$PATH:~/.emacs.d/bin
@@ -82,4 +85,4 @@ shopt -s globstar
 shopt -s expand_aliases
 
 # SUDO prompt
-export SUDO_PROMPT="$(tput bold)$(tput setaf 1)<< Word of Power >> $(tput sgr0)"
+export SUDO_PROMPT="$(tput bold)$(tput setaf 8).:|$(tput setaf 1) Word of Power $(tput setaf 8)|:.$(tput sgr0) "
