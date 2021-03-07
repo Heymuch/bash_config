@@ -62,6 +62,9 @@ alias cp='cp -i'
 alias free='free -m'
 alias htop='htop -t'
 
+# Docker Aliases
+alias gradle_jdk12="docker run --name gradle_jdk12 --rm -it -v \$(pwd):/app -u \$(id -u):\$(id -u) -w /app gradle:jdk12 bash"
+
 # PATH
 export PATH=$PATH:~/.emacs.d/bin
 
