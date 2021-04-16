@@ -52,7 +52,7 @@ fi
 GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
-alias ls='ls -1 --group-directories-first --color=auto --file-type'
+alias ls='ls --group-directories-first --color=auto --file-type'
 alias la='ls -lAhv --group-directories-first --color=auto --file-type'
 alias ll='ls -lhgGv --group-directories-first --color=auto --file-type'
 alias tree='tree --du --si --dirsfirst -L 3'
