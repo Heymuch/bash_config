@@ -20,7 +20,7 @@ function git_branch {
 function ps1_git {
 	local branch=$(git_branch)
 	if [ $branch ] ; then
-		echo "(${branch}) "
+		echo " <${branch}>"
 	fi
 }
 
@@ -29,11 +29,13 @@ function ps1_config {
 	if $enable_colors ; then
 		# Barvy
 		local grey="\[$(tput setaf 8)\]"
-		local blue="\[$(tput setaf 6)\]"
+		local red="\[$(tput setaf 1)\]"
+		local blue="\[$(tput setaf 4)\]"
+		local yellow="\[$(tput setaf 3)\]"
 		local bold="\[$(tput bold)\]"
 		local reset="\[$(tput sgr0)\]"
 
-		echo "${bold}${grey}.:| ${blue}\W${grey} \$(ps1_git)|:. ${reset}"
+		echo "${bold}${grey}[ ${red}\W ${grey}]${blue}\$(ps1_git)${grey} ~> ${reset}"
 	else
 		echo "[ \u@\h \W \$(ps1_git)] "
 	fi
@@ -88,4 +90,4 @@ shopt -s globstar
 shopt -s expand_aliases
 
 # SUDO prompt
-export SUDO_PROMPT="$(tput bold)$(tput setaf 8).:|$(tput setaf 1) Word of Power $(tput setaf 8)|:.$(tput sgr0) "
+export SUDO_PROMPT="$(tput bold)$(tput setaf 8)[$(tput setaf 1) JUST SAY IT! $(tput setaf 8)] ~>$(tput sgr0) "
