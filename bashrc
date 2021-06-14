@@ -54,11 +54,12 @@ fi
 GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
-alias ls='ls --group-directories-first --color=auto --file-type'
-alias la='ls -lAhv --group-directories-first --color=auto --file-type'
-alias ll='ls -lhgGv --group-directories-first --color=auto --file-type'
-alias tree='tree --du --si --dirsfirst -L 3'
-alias trea='tree --du --si --dirsfirst -L 3 -a'
+#alias ls='ls --group-directories-first --color=auto --file-type'
+alias ls='/usr/bin/tree --dirsfirst -L 1'
+alias la='/usr/bin/ls -lAhv --group-directories-first --color=auto --file-type'
+alias ll='/usr/bin/ls -lhgGv --group-directories-first --color=auto --file-type'
+#alias tree='tree --du --si --dirsfirst -L 3'
+#alias trea='tree --du --si --dirsfirst -L 3 -a'
 alias df='df -h'
 alias cp='cp -i'
 alias free='free -m'
